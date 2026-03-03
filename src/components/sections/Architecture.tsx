@@ -8,7 +8,7 @@ interface Spec {
 }
 
 const specs: Spec[] = [
-  { label: 'Network', value: 'Noor Network (Aventus / Polkadot parachain)' },
+  { label: 'Network', value: 'Noor Network (appchain on Aventus)' },
   { label: 'Consensus', value: 'Optimistic validation with fraud proofs' },
   { label: 'Token', value: 'NOOR — staking, gas, and governance' },
   { label: 'On-Chain Data', value: 'Attestation hashes, quorum signatures, timestamps' },
