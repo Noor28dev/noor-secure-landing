@@ -95,11 +95,7 @@ export default function Enterprise() {
                 <p className="text-sm font-medium text-noor-teal mb-3">{tier.domains}</p>
                 <p className="text-sm text-noor-grey1 leading-relaxed mb-6 flex-1">{tier.description}</p>
                 <a
-                  href="#cta"
-                  onClick={(e) => {
-                    e.preventDefault()
-                    document.querySelector('#cta')?.scrollIntoView({ behavior: 'smooth' })
-                  }}
+                  href="mailto:hello@noor28.com"
                   className={`text-center text-sm font-semibold py-2.5 rounded-lg transition-all ${
                     tier.featured
                       ? 'bg-noor-teal text-noor-nearblack hover:brightness-110'

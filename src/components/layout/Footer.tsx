@@ -16,6 +16,7 @@ export default function Footer() {
           <div className="flex flex-wrap gap-6">
             <a href="#" className="text-sm text-noor-grey1 hover:text-white transition-colors">Whitepaper</a>
             <a href="https://demo.noor28.com" target="_blank" rel="noopener noreferrer" className="text-sm text-noor-grey1 hover:text-white transition-colors">Demo</a>
+            <a href="mailto:hello@noor28.com" className="text-sm text-noor-grey1 hover:text-white transition-colors">Contact</a>
             <a href="#" className="text-sm text-noor-grey1 hover:text-white transition-colors">Privacy</a>
             <a href="#" className="text-sm text-noor-grey1 hover:text-white transition-colors">Terms</a>
           </div>
