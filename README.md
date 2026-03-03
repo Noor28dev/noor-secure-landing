@@ -1,6 +1,6 @@
-# Noor28 Landing Page
+# Noor Secure Landing Page
 
-Production marketing website for **PageAttest by NOOR** — a decentralised web integrity verification network.
+Production marketing website for **Noor Secure by NOOR** — a decentralised web integrity verification network.
 
 Live at [noor28.com](https://noor28.com)
 

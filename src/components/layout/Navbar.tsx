@@ -38,7 +38,7 @@ export default function Navbar() {
           {/* Logo */}
           <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="flex items-baseline gap-1.5">
             <span className="text-white font-bold text-lg tracking-[0.2em]">NOOR</span>
-            <span className="text-noor-teal font-medium text-sm">PageAttest</span>
+            <span className="text-noor-teal font-medium text-sm">Secure</span>
           </a>
 
           {/* Desktop links */}

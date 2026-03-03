@@ -83,7 +83,7 @@ export default function IntegrityScore() {
           <div className="bg-noor-card border border-noor-card-border rounded-lg p-6 max-w-3xl mx-auto">
             <p className="text-sm text-noor-grey1 leading-relaxed">
               <span className="text-noor-teal font-medium">Smart drift detection: </span>
-              PageAttest distinguishes between routine deployments and malicious injections
+              Noor Secure distinguishes between routine deployments and malicious injections
               by tracking authorised deployment windows, CI/CD signatures, and progressive
               rollout patterns — so your team isn't buried in false positives.
             </p>

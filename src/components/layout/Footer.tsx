@@ -7,7 +7,7 @@ export default function Footer() {
           <div>
             <div className="flex items-baseline gap-1.5 mb-2">
               <span className="text-white font-bold text-lg tracking-[0.2em]">NOOR</span>
-              <span className="text-noor-teal font-medium text-sm">PageAttest</span>
+              <span className="text-noor-teal font-medium text-sm">Secure</span>
             </div>
             <p className="text-xs text-noor-grey2">&copy; 2026 Noor Foundation. All rights reserved.</p>
           </div>
@@ -36,7 +36,7 @@ export default function Footer() {
 
         <div className="border-t border-noor-card-border pt-6">
           <p className="text-xs text-noor-grey2 leading-relaxed">
-            PageAttest is a product of the Noor Foundation. Blockchain infrastructure powered by the Noor Network.
+            Noor Secure is a product of the Noor Foundation. Blockchain infrastructure powered by the Noor Network.
             All attestation records are publicly verifiable. Past performance of integrity scores does not guarantee
             future security. Always maintain independent security practices.
           </p>

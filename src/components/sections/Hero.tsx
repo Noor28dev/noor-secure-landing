@@ -30,7 +30,7 @@ export default function Hero() {
             Is it really yours?
           </motion.h1>
           <motion.p variants={fadeUp} className="text-lg sm:text-xl text-noor-grey1 max-w-2xl mb-10 leading-relaxed">
-            PageAttest monitors every pixel, script, and API call — verified by 30,000
+            Noor Secure monitors every pixel, script, and API call — verified by 30,000
             independent nodes. Attackers can't hide from a network they can't predict.
           </motion.p>
           <motion.div variants={fadeUp} className="flex flex-wrap gap-4">

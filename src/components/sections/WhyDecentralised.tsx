@@ -7,15 +7,15 @@ import { useAnimatedCounter } from '../../hooks/useAnimatedCounter'
 interface ComparisonRow {
   aspect: string
   centralised: string
-  pageattest: string
+  noorSecure: string
 }
 
 const rows: ComparisonRow[] = [
-  { aspect: 'Operator', centralised: 'Single company', pageattest: 'Three independent layers' },
-  { aspect: 'Scan Origins', centralised: 'Known IPs, predictable', pageattest: '30,000+ diverse IPs, unpredictable' },
-  { aspect: 'Trust Model', centralised: 'Trust the vendor', pageattest: 'Trust mathematics (quorum consensus)' },
-  { aspect: 'Tamper Evidence', centralised: 'Internal logs (editable)', pageattest: 'On-chain commitment (immutable)' },
-  { aspect: 'Single Point of Failure', centralised: 'Yes', pageattest: 'No' },
+  { aspect: 'Operator', centralised: 'Single company', noorSecure: 'Three independent layers' },
+  { aspect: 'Scan Origins', centralised: 'Known IPs, predictable', noorSecure: '30,000+ diverse IPs, unpredictable' },
+  { aspect: 'Trust Model', centralised: 'Trust the vendor', noorSecure: 'Trust mathematics (quorum consensus)' },
+  { aspect: 'Tamper Evidence', centralised: 'Internal logs (editable)', noorSecure: 'On-chain commitment (immutable)' },
+  { aspect: 'Single Point of Failure', centralised: 'Yes', noorSecure: 'No' },
 ]
 
 interface StatItem {
@@ -58,7 +58,7 @@ export default function WhyDecentralised() {
           </h2>
           <p className="text-noor-grey1 text-lg max-w-2xl mb-16 leading-relaxed">
             Centralised monitoring creates a single point of trust — and a single point
-            of compromise. PageAttest eliminates both.
+            of compromise. Noor Secure eliminates both.
           </p>
         </ScrollReveal>
 
@@ -72,7 +72,7 @@ export default function WhyDecentralised() {
                 Centralised
               </div>
               <div className="p-4 text-xs font-semibold uppercase tracking-wider text-noor-teal text-center">
-                PageAttest
+                Noor Secure
               </div>
             </div>
             {/* Rows */}
@@ -80,7 +80,7 @@ export default function WhyDecentralised() {
               <div key={row.aspect} className="grid grid-cols-3 border-t border-noor-card-border">
                 <div className="p-4 text-sm font-medium text-white">{row.aspect}</div>
                 <div className="p-4 text-sm text-noor-grey2 text-center">{row.centralised}</div>
-                <div className="p-4 text-sm text-noor-grey1 text-center">{row.pageattest}</div>
+                <div className="p-4 text-sm text-noor-grey1 text-center">{row.noorSecure}</div>
               </div>
             ))}
           </div>

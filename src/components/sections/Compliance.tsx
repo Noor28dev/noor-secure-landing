@@ -44,7 +44,7 @@ export default function Compliance() {
             PCI DSS v4.x compliance. Out of the box.
           </h2>
           <p className="text-noor-grey1 text-lg max-w-2xl mb-16 leading-relaxed">
-            PageAttest maps directly to the requirements your auditors are asking about — with
+            Noor Secure maps directly to the requirements your auditors are asking about — with
             cryptographic proof they can independently verify.
           </p>
         </ScrollReveal>
@@ -70,7 +70,7 @@ export default function Compliance() {
             <p className="text-sm text-noor-grey1 leading-relaxed">
               <span className="text-red-400 font-medium">Non-compliance cost: </span>
               PCI DSS fines up to $500,000 per incident. GDPR fines up to 4% of global
-              annual turnover. PageAttest provides continuous, verifiable evidence of
+              annual turnover. Noor Secure provides continuous, verifiable evidence of
               compliance — not just point-in-time snapshots.
             </p>
           </div>

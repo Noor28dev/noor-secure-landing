@@ -54,7 +54,7 @@ export default function HowItWorks() {
             Three layers. Zero trust assumptions.
           </h2>
           <p className="text-noor-grey1 text-lg max-w-2xl mb-16 leading-relaxed">
-            PageAttest separates scanning, verification, and validation across independent
+            Noor Secure separates scanning, verification, and validation across independent
             infrastructure — so no single point of compromise can fake a clean result.
           </p>
         </ScrollReveal>

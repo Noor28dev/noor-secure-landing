@@ -11,7 +11,7 @@ export default function CallToAction() {
             </h2>
             <p className="text-noor-grey1 text-lg mb-10 leading-relaxed">
               Request a live demo tailored to your infrastructure. We'll show you
-              exactly what PageAttest detects — and how it proves it.
+              exactly what Noor Secure detects — and how it proves it.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
               <a
