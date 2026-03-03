@@ -1,4 +1,4 @@
-# PageAttest Landing Page
+# Noor28 Landing Page
 
 Production marketing website for **PageAttest by NOOR** — a decentralised web integrity verification network.
 
