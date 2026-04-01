@@ -1,134 +1,83 @@
-import { useState, useCallback } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
-import { useScrolled } from '../../hooks/useScrolled'
-import { useActiveSection } from '../../hooks/useActiveSection'
 
-const NAV_LINKS = [
-  { label: 'How It Works', href: '#how-it-works' },
-  { label: 'Architecture', href: '#architecture' },
-  { label: 'Compliance', href: '#compliance' },
-  { label: 'Enterprise', href: '#enterprise' },
-]
+const navLinks = [
+  { label: 'Products', href: '#products' },
+    { label: 'Media', href: '#media' },
+      { label: 'Demos/Shop', href: '#demos' },
+        { label: 'Careers', href: '#careers' },
+        ]
 
-export default function Navbar() {
-  const scrolled = useScrolled()
-  const activeSection = useActiveSection()
-  const [mobileOpen, setMobileOpen] = useState(false)
+        export default function Navbar() {
+          const [scrolled, setScrolled] = useState(false)
+            const [mobileOpen, setMobileOpen] = useState(false)
 
-  const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault()
-    const target = document.querySelector(href)
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth' })
-    }
-    setMobileOpen(false)
-  }, [])
+              useEffect(() => {
+                  const handleScroll = () => setScrolled(window.scrollY > 20)
+                      window.addEventListener('scroll', handleScroll)
+                          return () => window.removeEventListener('scroll', handleScroll)
+                            }, [])
 
-  const isActive = (href: string) => `#${activeSection}` === href
+                              return (
+                                  <motion.header
+                                        initial={{ y: -80, opacity: 0 }}
+                                              animate={{ y: 0, opacity: 1 }}
+                                                    transition={{ duration: 0.6, ease: 'easeOut' }}
+                                                          className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+                                                                  scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white/90 backdrop-blur-sm'
+                                                                        }`}
+                                                                            >
+                                                                                  <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+                                                                                          <a href="/" className="flex items-center">
+                                                                                                    <span className="text-[#0D1211] font-black text-xl tracking-tight select-none">
+                                                                                                                N<span className="inline-block" style={{ transform: 'scaleX(-1)', display: 'inline-block' }}>A</span>R
+                                                                                                                          </span>
+                                                                                                                                  </a>
 
-  return (
-    <>
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ${
-          scrolled ? 'bg-noor-dark/80 backdrop-blur-lg' : 'bg-transparent'
-        }`}
-      >
-        <div className="mx-auto max-w-7xl px-6 flex items-center justify-between h-16">
-          {/* Logo */}
-          <a href="#hero" onClick={(e) => handleNavClick(e, '#hero')} className="flex items-baseline gap-1.5">
-            <span className="text-white font-bold text-lg tracking-[0.2em]">NOOR</span>
-            <span className="text-noor-teal font-medium text-sm">Secure</span>
-          </a>
+                                                                                                                                          <nav className="hidden md:flex items-center gap-8">
+                                                                                                                                                    {navLinks.map((link) => (
+                                                                                                                                                                <a key={link.label} href={link.href}
+                                                                                                                                                                              className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors duration-200">
+                                                                                                                                                                                            {link.label}
+                                                                                                                                                                                                        </a>
+                                                                                                                                                                                                                  ))}
+                                                                                                                                                                                                                          </nav>
 
-          {/* Desktop links */}
-          <div className="hidden lg:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
-                className={`text-sm transition-colors ${
-                  isActive(link.href)
-                    ? 'text-noor-teal'
-                    : 'text-noor-grey1 hover:text-white'
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#cta"
-              onClick={(e) => handleNavClick(e, '#cta')}
-              className="bg-noor-teal text-noor-nearblack font-semibold text-sm px-5 py-2 rounded-lg hover:brightness-110 transition-all"
-            >
-              Request Demo
-            </a>
-          </div>
+                                                                                                                                                                                                                                  <div className="hidden md:flex items-center gap-3">
+                                                                                                                                                                                                                                            <a href="#contact"
+                                                                                                                                                                                                                                                        className="text-xs font-bold text-[#0D1211] px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-all tracking-wider">
+                                                                                                                                                                                                                                                                    CONTACT
+                                                                                                                                                                                                                                                                              </a>
+                                                                                                                                                                                                                                                                                        <a href="#launch"
+                                                                                                                                                                                                                                                                                                    className="text-xs font-bold text-[#0D1211] px-4 py-2 rounded-lg bg-[#81D8D0] hover:bg-[#5BBDB5] transition-all tracking-wider">
+                                                                                                                                                                                                                                                                                                                LAUNCH APP
+                                                                                                                                                                                                                                                                                                                          </a>
+                                                                                                                                                                                                                                                                                                                                  </div>
 
-          {/* Mobile hamburger */}
-          <button
-            className="lg:hidden text-white p-2"
-            onClick={() => setMobileOpen(true)}
-            aria-label="Open menu"
-          >
-            <Menu size={24} />
-          </button>
-        </div>
-      </nav>
+                                                                                                                                                                                                                                                                                                                                          <button className="md:hidden p-1 text-gray-700" onClick={() => setMobileOpen(!mobileOpen)}>
+                                                                                                                                                                                                                                                                                                                                                    {mobileOpen ? <X size={22} /> : <Menu size={22} />}
+                                                                                                                                                                                                                                                                                                                                                            </button>
+                                                                                                                                                                                                                                                                                                                                                                  </div>
 
-      {/* Mobile drawer */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <>
-            <motion.div
-              className="fixed inset-0 z-50 bg-black/60"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setMobileOpen(false)}
-            />
-            <motion.div
-              className="fixed top-0 right-0 bottom-0 z-50 w-72 bg-noor-dark p-6 flex flex-col"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            >
-              <button
-                className="self-end text-white p-2 mb-8"
-                onClick={() => setMobileOpen(false)}
-                aria-label="Close menu"
-              >
-                <X size={24} />
-              </button>
-              <div className="flex flex-col gap-6">
-                {NAV_LINKS.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.href)}
-                    className={`text-lg transition-colors ${
-                      isActive(link.href)
-                        ? 'text-noor-teal'
-                        : 'text-noor-grey1 hover:text-white'
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                ))}
-                <a
-                  href="#cta"
-                  onClick={(e) => handleNavClick(e, '#cta')}
-                  className="bg-noor-teal text-noor-nearblack font-semibold text-center px-5 py-3 rounded-lg mt-4"
-                >
-                  Request Demo
-                </a>
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
-    </>
-  )
-}
+                                                                                                                                                                                                                                                                                                                                                                        <AnimatePresence>
+                                                                                                                                                                                                                                                                                                                                                                                {mobileOpen && (
+                                                                                                                                                                                                                                                                                                                                                                                          <motion.div initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }}
+                                                                                                                                                                                                                                                                                                                                                                                                      exit={{ opacity: 0, height: 0 }} className="md:hidden bg-white border-t border-gray-100 px-6 pb-4">
+                                                                                                                                                                                                                                                                                                                                                                                                                  {navLinks.map((link) => (
+                                                                                                                                                                                                                                                                                                                                                                                                                                <a key={link.label} href={link.href}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                className="block py-3 text-sm font-medium text-gray-600 border-b border-gray-50"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                onClick={() => setMobileOpen(false)}>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                {link.label}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          ))}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      <div className="flex gap-3 mt-4">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <a href="#contact" className="flex-1 text-center text-xs font-bold py-2.5 border border-gray-200 rounded-lg tracking-wider">CONTACT</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  <a href="#launch" className="flex-1 text-center text-xs font-bold py-2.5 bg-[#81D8D0] rounded-lg tracking-wider">LAUNCH APP</a>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        </motion.div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                )}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </AnimatePresence>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </motion.header>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            )
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }

@@ -1,81 +1,81 @@
-import { FileCheck, Shield, Lock } from 'lucide-react'
-import ScrollReveal from '../ui/ScrollReveal'
-import SectionLabel from '../ui/SectionLabel'
-import type { LucideIcon } from 'lucide-react'
+import { useRef } from 'react'
+import { motion, useInView } from 'framer-motion'
 
-interface ComplianceCard {
-  icon: LucideIcon
-  code: string
-  title: string
-  description: string
-}
+const brands = [
+  { name: 'coinpeck', display: 'coinpeck' },
+    { name: 'Tokenfi', display: 'Tokenfi' },
+      { name: 'ewx', display: 'ewx' },
+        { name: 'SOLAR', display: 'SOLAR' },
+          { name: 'Bonq', display: 'Bonq' },
+            { name: 'ARKEFI', display: 'ARKEFI' },
+              { name: 'PROTR', display: 'PROTR' },
+                { name: 'enigmatic', display: 'enigmatic' },
+                  { name: 'THE KULT', display: 'THE KULT' },
+                    { name: 'Healthier', display: 'Healthier' },
+                      { name: 'Dexpert', display: 'Dexpert' },
+                        { name: 'Stratumn', display: 'Stratumn' },
+                          { name: 'solar', display: 'solar' },
+                            { name: 'DAO', display: 'DAO' },
+                              { name: 'Palladient', display: 'Palladient' },
+                                { name: 'Aventus', display: 'Aventus' },
+                                  { name: 'bong', display: 'bong' },
+                                  ]
 
-const cards: ComplianceCard[] = [
-  {
-    icon: FileCheck,
-    code: 'PCI DSS 6.4.3',
-    title: 'Script Inventory & Authorisation',
-    description:
-      'Continuous inventory of all payment page scripts with integrity validation. Automated alerting on unauthorised additions or modifications.',
-  },
-  {
-    icon: Shield,
-    code: 'PCI DSS 11.6.1',
-    title: 'Tamper Detection',
-    description:
-      'Real-time change and tamper detection for HTTP headers and payment page content. Immutable audit trail via on-chain attestation records.',
-  },
-  {
-    icon: Lock,
-    code: 'GDPR Article 32',
-    title: 'Security of Processing',
-    description:
-      'Appropriate technical measures to ensure ongoing confidentiality and integrity of processing systems. Continuous verification and evidence generation.',
-  },
-]
+                                  export default function Brands() {
+                                    const ref = useRef(null)
+                                      const inView = useInView(ref, { once: true, margin: '-60px' })
 
-export default function Compliance() {
-  return (
-    <section id="compliance" className="py-24 scroll-mt-20">
-      <div className="mx-auto max-w-7xl px-6">
-        <ScrollReveal>
-          <SectionLabel>Compliance</SectionLabel>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-            PCI DSS v4.x compliance. Out of the box.
-          </h2>
-          <p className="text-noor-grey1 text-lg max-w-2xl mb-16 leading-relaxed">
-            Noor Secure maps directly to the requirements your auditors are asking about — with
-            cryptographic proof they can independently verify.
-          </p>
-        </ScrollReveal>
+                                        return (
+                                            <section ref={ref} className="bg-white py-16 px-6 overflow-hidden border-t border-gray-100" id="brands">
+                                                  <div className="max-w-7xl mx-auto">
+                                                          {/* Heading */}
+                                                                  <motion.div
+                                                                            initial={{ opacity: 0, y: 20 }}
+                                                                                      animate={inView ? { opacity: 1, y: 0 } : {}}
+                                                                                                transition={{ duration: 0.6 }}
+                                                                                                          className="text-center mb-10"
+                                                                                                                  >
+                                                                                                                            <p className="text-[#65696A] text-sm font-medium">
+                                                                                                                                        Trusted by <span className="font-bold text-[#0D1211]">leading</span>
+                                                                                                                                                    <br className="sm:hidden" />{' '}
+                                                                                                                                                                <span className="font-bold text-[#0D1211]">brands</span> across industries
+                                                                                                                                                                          </p>
+                                                                                                                                                                                  </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          {cards.map((card, i) => {
-            const Icon = card.icon
-            return (
-              <ScrollReveal key={card.code} delay={i * 0.15}>
-                <div className="bg-noor-card border border-noor-card-border rounded-lg p-6 h-full">
-                  <Icon size={24} className="text-noor-teal mb-4" />
-                  <p className="text-xs font-mono text-noor-teal mb-2">{card.code}</p>
-                  <h3 className="text-lg font-semibold text-white mb-3">{card.title}</h3>
-                  <p className="text-sm text-noor-grey1 leading-relaxed">{card.description}</p>
-                </div>
-              </ScrollReveal>
-            )
-          })}
-        </div>
+                                                                                                                                                                                          {/* Marquee logos */}
+                                                                                                                                                                                                  <motion.div
+                                                                                                                                                                                                            initial={{ opacity: 0 }}
+                                                                                                                                                                                                                      animate={inView ? { opacity: 1 } : {}}
+                                                                                                                                                                                                                                transition={{ duration: 0.8, delay: 0.2 }}
+                                                                                                                                                                                                                                          className="overflow-hidden relative"
+                                                                                                                                                                                                                                                  >
+                                                                                                                                                                                                                                                            {/* Fade edges */}
+                                                                                                                                                                                                                                                                      <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
+                                                                                                                                                                                                                                                                                <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
 
-        <ScrollReveal>
-          <div className="bg-noor-card border border-red-400/20 rounded-lg p-6 max-w-3xl mx-auto">
-            <p className="text-sm text-noor-grey1 leading-relaxed">
-              <span className="text-red-400 font-medium">Non-compliance cost: </span>
-              PCI DSS fines up to $500,000 per incident. GDPR fines up to 4% of global
-              annual turnover. Noor Secure provides continuous, verifiable evidence of
-              compliance — not just point-in-time snapshots.
-            </p>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
-  )
-}
+                                                                                                                                                                                                                                                                                          <div className="flex animate-marquee gap-12 items-center" style={{ width: 'max-content' }}>
+                                                                                                                                                                                                                                                                                                      {[...brands, ...brands].map((brand, i) => (
+                                                                                                                                                                                                                                                                                                                    <div
+                                                                                                                                                                                                                                                                                                                                    key={i}
+                                                                                                                                                                                                                                                                                                                                                    className="flex-shrink-0 text-[#65696A] font-semibold text-sm tracking-wide opacity-60 hover:opacity-100 transition-opacity cursor-default select-none whitespace-nowrap"
+                                                                                                                                                                                                                                                                                                                                                                    style={{ minWidth: '80px', textAlign: 'center' }}
+                                                                                                                                                                                                                                                                                                                                                                                  >
+                                                                                                                                                                                                                                                                                                                                                                                                  {brand.display}
+                                                                                                                                                                                                                                                                                                                                                                                                                </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                            ))}
+                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                              </motion.div>
+
+                                                                                                                                                                                                                                                                                                                                                                                                                                                      {/* Product Spotlight label */}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                              <motion.div
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                        initial={{ opacity: 0, y: 16 }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            transition={{ duration: 0.6, delay: 0.4 }}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      className="text-center mt-14"
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              >
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        <p className="text-[#0D1211] text-base font-semibold tracking-wide">Product Spotlight</p>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                </motion.div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      </div>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          </section>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            )
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            }
