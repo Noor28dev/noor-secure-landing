@@ -2,37 +2,127 @@
 
 @theme {
   --color-noor-teal: #81D8D0;
-  --color-noor-grey1: #8E9492;
-  --color-noor-grey2: #65696A;
-  --color-noor-dark: #1B2120;
-  --color-noor-darker: #161B1A;
-  --color-noor-nearblack: #0D1211;
-  --color-noor-card: #1E2625;
-  --color-noor-card-border: #2A3332;
-  --color-noor-card-hover: #242B2A;
-  --color-noor-text: #FFFFFF;
-}
+    --color-noor-teal-dark: #5BBDB5;
+      --color-noor-grey1: #8E9492;
+        --color-noor-grey2: #65696A;
+          --color-noor-dark: #1B2120;
+            --color-noor-darker: #161B1A;
+              --color-noor-nearblack: #0D1211;
+                --color-noor-card: #1E2625;
+                  --color-noor-card-border: #2A3332;
+                    --color-noor-card-hover: #242B2A;
+                      --color-noor-text: #FFFFFF;
+                      }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: var(--color-noor-nearblack);
-  color: var(--color-noor-text);
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+                      body {
+                        font-family: 'Inter', sans-serif;
+                          background-color: #0D1211;
+                            color: #FFFFFF;
+                              margin: 0;
+                                -webkit-font-smoothing: antialiased;
+                                  -moz-osx-font-smoothing: grayscale;
+                                  }
 
-html {
-  scroll-behavior: smooth;
-}
+                                  html {
+                                    scroll-behavior: smooth;
+                                    }
 
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
+                                    @media (prefers-reduced-motion: reduce) {
+                                      html { scroll-behavior: auto; }
+                                      }
+
+                                      ::-webkit-scrollbar { width: 6px; }
+                                      ::-webkit-scrollbar-track { background: #0D1211; }
+                                      ::-webkit-scrollbar-thumb { background: #2A3332; border-radius: 3px; }
+                                      ::-webkit-scrollbar-thumb:hover { background: #81D8D0; }
+
+                                      @keyframes marquee {
+                                        0% { transform: translateX(0); }
+                                          100% { transform: translateX(-50%); }
+                                          }
+                                          .animate-marquee {
+                                              animation: marquee 30s linear infinite;
+                                              }
+                                              .animate-marquee:hover {
+                                                  animation-play-state: paused;
+                                                  }
+
+                                                  @keyframes float {
+                                                    0%, 100% { transform: translateY(0px); }
+                                                      50% { transform: translateY(-10px); }
+                                                      }
+                                                      @keyframes float-delay {
+                                                        0%, 100% { transform: translateY(0px) rotate(1deg); }
+                                                          50% { transform: translateY(-14px) rotate(-1deg); }
+                                                          }
+                                                          @keyframes float-slow {
+                                                            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+                                                              50% { transform: translateY(-8px) rotate(2deg); }
+                                                              }
+
+                                                              .animate-float { animation: float 4s ease-in-out infinite; }
+                                                              .animate-float-delay { animation: float-delay 5s ease-in-out infinite 0.8s; }
+                                                              .animate-float-slow { animation: float-slow 6s ease-in-out infinite 1.5s; }
+
+                                                              @keyframes glow-pulse {
+                                                                  0%, 100% { box-shadow: 0 0 20px rgba(129,216,208,0.2); }
+                                                                    50% { box-shadow: 0 0 40px rgba(129,216,208,0.4); }
+                                                                    }
+                                                                    .animate-glow { animation: glow-pulse 3s ease-in-out infinite; }
+
+                                                                    .pill-tag {
+                                                                      display: inline-flex;
+                                                                        align-items: center;
+                                                                          gap: 6px;
+                                                                            padding: 6px 14px;
+                                                                              border-radius: 100px;
+                                                                                font-size: 12px;
+                                                                                  font-weight: 600;
+                                                                                    letter-spacing: 0.05em;
+                                                                                      text-transform: uppercase;
+                                                                                        background: rgba(129,216,208,0.1);
+                                                                                          color: #81D8D0;
+                                                                                            border: 1px solid rgba(129,216,208,0.25);
+                                                                                            }
+
+                                                                                            .btn-teal {
+                                                                                              background: #81D8D0;
+                                                                                                color: #0D1211;
+                                                                                                  font-weight: 600;
+                                                                                                    padding: 10px 24px;
+                                                                                                      border-radius: 10px;
+                                                                                                        transition: background 0.2s, transform 0.2s;
+                                                                                                          display: inline-flex;
+                                                                                                            align-items: center;
+                                                                                                              gap: 8px;
+                                                                                                              }
+                                                                                                              .btn-teal:hover { background: #5BBDB5; transform: translateY(-1px); }
+
+                                                                                                              .product-card {
+                                                                                                                  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+                                                                                                                  }
+                                                                                                                  .product-card:hover {
+                                                                                                                      transform: translateY(-3px);
+                                                                                                                        box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+                                                                                                                        }
+
+                                                                                                                        .nav-link {
+                                                                                                                            position: relative;
+                                                                                                                              transition: color 0.2s;
+                                                                                                                              }
+                                                                                                                              .nav-link::after {
+                                                                                                                                  content: '';
+                                                                                                                                    position: absolute;
+                                                                                                                                      bottom: -2px; left: 0;
+                                                                                                                                        width: 0; height: 1px;
+                                                                                                                                          background: #81D8D0;
+                                                                                                                                            transition: width 0.2s;
+                                                                                                                                            }
+                                                                                                                                            .nav-link:hover::after { width: 100%; }
+                                                                                                                              }
+                                                                                                                        }
+                                                                                                                  }
+                                                                                                              }
+                                                              }
+                                              }
+                                          }
